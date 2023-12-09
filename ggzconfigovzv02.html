@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZConfigovzvXX.html
+	Doel: 	 Deze html module bouwt het eerste scherm met beheer-functies voor het GGZLab. Vanuit onderhoudbaarheid is de javascript-code zoveel mogelijk gescheiden van de HTML instructies. Daardoor hoort bij dit html-scherm een javascript-bestand met de naam GGZConfigovzvXX.js. 
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzconfigovzv02.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.2";
+var appname		= "Configuratie-overzicht";
+var appfile		= "ggzconfigovzv02.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<style>
+.navbar {
+    height: 80px !important; /*i assume your navbar size 80px*/
+}
+select {
+  width: 200px;
+}
+
+select option {
+  width: 200px;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img\ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link  disabled" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body onload="toonheader()">
+<hr></hr>
+<div class="container">
+	<div class="row">
+			<div class="form-group">
+				<label id="appname"></label>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			 <div class="form-group form-inline">
+			<label for="selentity">Gegevensverzameling</label>
+			<select id="selentity" name="selentity" style="width: 200px" class="form-control pull-right" onchange="checkarray()">
+				<option value="xissen">zorgaanbieders</option>
+				<option value="burgerarray">geregistreerde burgers</option>
+				<option value="patientarray">patienten</option>
+				<option value="toestmog">toestemmingsmogelijkheden</option>
+				<option value="autorisatiearray">toestemmingsregister</option>
+				<option value="animarray">animaties</option>
+			</select>
+			</div>
+		</div>
+		<div class="col">
+			<button id="tablebutton" type="button" class="btn btn-outline-primary" onclick="showarray()"><i class="fas fa-clipboard-check" style="color:white" ></i>Bekijken</button>
+			<button id="exportbutton" type="button" class="btn btn-outline-primary" onclick="exportarray()"><i class="fas fa-clipboard-check" style="color:white" ></i>Exporteren</button>
+		</div>
+		<div class="col invisible">
+			<input class="inputFile" id="inputfile" type="file">
+			<button id="importbutton" type="button" class="btn btn-outline-primary" disabled onclick="importarray('burgerarray')">Importeren</button>
+		</div>
+		<div class="col invisible">
+			<input class="inputFile" id="inputconfig" type="file">
+			<button id="exportconfig" type="button" class="btn btn-outline-primary" onclick="exportconfig()">Hele configuratie exporteren</button>
+			<button id="importconfig" type="button" class="btn btn-outline-primary" onclick="importconfig()">Hele configuratie importeren</button>
+		</div>
+		<div class="col">
+			<div id="res"></div>
+		</div>
+	</div>
+	<div class="row">
+		<table id="lijsttabel" class="table table-striped table-bordered border-primary caption-top">
+		<caption><center><h4><p id="caption1"></p></h4></center></caption>
+			<thead>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>	
+
+ </body>
+</html>

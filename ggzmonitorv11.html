@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZMonitor
+	Doel: 	 Dit javascript/html programma laat in animaties zien welke gegevensstromen er lopen als er uitwisseling plaatsvindt. De uitwisseling zelf wordt geactiveerd vanuit andere programma's. Als ggzmonitor naast die programma's is opgestart en geactiveerd starten/stoppen de animaties vanzelf De belangrijkste functies in deze html-file zijn:
+	- Drawconfig		:	opzetten van het scherm, dit gebeurt bij opstarten of op verzoek dmv toetsdruk
+	- ASkmitz:			bevragen van Mitz vanuit een XIS (ook vanuit DEGGZ), antwoord is ja of nee
+	- Xisasks:			bevragen van DEGGZ vanuit een XIS (bijvoorbeeld: huisarts vraagt samenvatting GGZ dossier). Reactie = de gegevens of een afwijzing
+	- Askxis:			bevragen van een ander XIS vanuit DEGGZ (bijvoorbeeld GGZ vraagt huisarts-samenvatting. Reactie = de gegevens of een afwijzing
+	- Mijnmitz:			enkelvoudige communicatie tussen MijnMitz en Mitz (in de vorm van een zwarte lijn)
+	- Drawlegend:		het presenteren van een legenda (verklaring van de kleuren/streping van de lijnen) in een pop-up scherm
+	- De monitoring functie bekijkt en bewerkt een localstorage "animarray", hierin staan de uit te voeren animaties, dus mijnmitz,askxis,xisasks en askmitz
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="animatev18.js"></script>
+<script src="ggzmonitorv11.js"></script>
+<!-- -->
+<script>
+var appversion 	= "1.1";
+var appname		= "GGZMonitor";
+var appfile		= "ggzmonitorv11.html"
+var helppage	= 0;
+</script>
+<style>
+canvas {
+    border: 1px solid black;
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img/ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<div class="container-fluid">
+<div class="row"> 
+	<center><div id="appname"></div></center>
+</div>
+<div class="row"> 
+	<center><b>GGZMonitor</b></center>
+</div>
+<div class="row">
+	<div class="col">
+		<button id="startmonitor" type="button" class="btn btn-primary" onclick="startmonitor()"><i class="fas fa-clipboard-check" style="color:white"></i>Monitoring starten</button>
+		<button id="stopmonitor" type="button" class="btn btn-primary" onclick="stopmonitor()"><i class="fas fa-clipboard-check" style="color:white" disabled></i>Monitoring stoppen</button>
+		<button id="legend" type="button" onclick="drawlegend()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-clipboard-check" style="color:white"></i>Legenda</button>
+	</div>
+	<div class="col">
+		&nbsp
+	</div>
+	<div class="col">
+		&nbsp
+	</div>
+</div>	
+<div class="row">
+&nbsp
+</div>
+<canvas id="canvas" width="600" height="700"></canvas>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="legenda-titel">Legenda</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <canvas id="legendcanvas" width="550" height="250" class="border border-success" ></canvas>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Legenda afsluiten</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+const	cvs = document.getElementById("canvas");
+const	ctx = cvs.getContext("2d");
+$(document).ready(function(){ 
+	var intervalid = 0;
+	clean();
+});
+</script>
+</body>
+</html>

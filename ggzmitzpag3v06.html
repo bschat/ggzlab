@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<!-- Patientregistratie -->
+<!------- Begin standaard blokje voor alle GUI apps in het GGZLab -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzmitzpag3v06.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.6";
+var appname		= "MijnMitz(3)";
+var appfile		= "ggzmitzpag3v06.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img/ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="javascript:gostart();">Startscherm</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor (in nieuw window)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gopatientlist();">Patienten</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body>
+<hr></hr>
+<div id="parameters" class="container">
+	<div class="row">
+			<div class="form-group">
+				<p id="appname"></p>
+				<label for = "bsn" class="control-label  pull-right">BSN</label>
+				<span class="icon-case"><i class="fas fa-male"></i></span>
+				<input name="bsn" id="bsn" style="width: 200px" class="form-control pull-right" onchange="vultabel();">
+				<label for = "bsn" class="control-label  pull-right">Cat. dossierhouder</label>
+				<span class="icon-case"><i class="fas fa-male"></i></span>
+				<input name="cathouder" id="cathouder" style="width: 200px" class="form-control pull-right" onchange="vultabel();">
+			</div>
+	</div>
+</div>	
+<!-- div met gemaakte keuzes -->
+<div class="container">
+	<div class="center-box">
+		<center><p id="kopje"></p></center>
+		<center>Als jij toestemming geeft kunnen andere zorgaanbieders jouw gegevens elektronisch opvragen. Zorgaanbieders gebruiken hiervoor een elektronisch uitwisselingssysteem.</center>
+		<table id="autorisatietabel"> </table>
+		<div>
+			<center>
+				<button id="klaarbutton"  class="btn btn-outline btn-primary" onclick="naarpag2()">Klaar</button>
+			<center>
+		</div>
+	</div>	
+</div>
+</body>
+</html>

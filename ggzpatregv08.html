@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZPatregvXX.html
+	Doel: 	 Dit javascript/html programma simuleert de patientregistratie bij een zorgaanbieder. Vanuit onderhoudbaarheid is de javascript-code zoveel mogelijk gescheiden van de HTML instructies. Daardoor hoort bij dit html-scherm een javascript-bestand met de naam GGZPatregvXX.js. 
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzpatregv08.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.8";
+var appname		= "Patientregistratie";
+var appfile		= "ggzpatregv08.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img/ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link disabled" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body onload="toonheader()">
+<hr></hr>
+<div class="container">
+	<div class="row">
+			<div class="form-group">
+				<label id="appname"></label>
+				<label for="aanbieder" class="control-label  pull-right">Zorgaanbieder</label>
+				<span class="icon-case"><i class="fa fa-building"></i></span>
+				<select name="aanbieder" id="aanbieder" style="width: 200px" class="form-control pull-right" onchange="xischange()">
+				</select>
+				<img id="logoimg" src="img/logoDEGGZ.png" style="height:40px;position:absolute;margin-left:40px"></img>
+			</div>
+	</div>
+	<div class="row">
+		<form id="patientinv">
+			<div class="contentform">
+				<div class="leftcontact">
+					<div class="form-group">
+						<p>Burgerservicenummer<span>*</span></p>
+						<span class="icon-case"><i class="fas fa-male"></i></span>
+						<input type="text" required name="bsn" id="bsn" onchange="bsnveldchange()"/>
+						<div class="validation"></div>
+					</div>
+					<div class="form-group">
+						<p>Achternaam<span>*</span></p>
+						<span class="icon-case"><i class="fas fa-male"></i></span>
+						<input type="text" required name="achternaam" id="achternaam" />
+						<div class="validation"></div>
+					</div> 
+					<div class="form-group">
+						<p>Voornaam</p>
+						<span class="icon-case"><i class="fas fa-user"></i></span>
+						<input type="text" name="voornaam" id="voornaam"/>
+					</div>
+					<div class="form-group">
+						<p>Titel</p>
+						<span class="icon-case"><i class="fas fa-user"></i></span>
+						<input type="text" name="titel" id="titel"/>
+					</div>
+					<div class="form-group">
+						<p>Geslacht</p>  
+						<span class="icon-case"><i class="fas fa-venus-mars"></i></span>
+						<select name="geslacht" id="geslacht">
+							<option value="vrouw">vrouw</option>
+							<option value="man">man</option>
+							<option value="anders">anders</option>
+							<option value="onbekend">onbekend</option>
+						</select>           
+					</div>
+					<div class="form-group">
+						<p>Geboortedatum</p>
+						<span class="icon-case"><i class="fas fa-calendar-day"></i></span>
+						<input type="date" name="geboortedatum" id="geboortedatum"/>
+					</div>
+				</div>
+				<div class="rightcontact">  			
+					<div class="form-group">
+						<p>Straatnaam</p>
+						<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+						<input type="text" name="straatnaam" id="straatnaam"/>     
+					</div>
+					<div class="form-group">
+						<p>Huisnummer</p>
+						<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+						<input type="text" name="huisnummer" id="huisnummer"/>     
+					</div>
+					<div class="form-group">
+						<p>Woonplaats</p>
+						<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+						<input type="text" name="woonplaats" id="woonplaats"/>     
+					</div>
+					<div class="form-group">
+						<p>Postcode</p>
+						<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+						<input type="text" name="postcode" id="postcode"/>     
+					</div>
+					<div class="form-group">
+						<p>Telefoon</p>
+						<span class="icon-case"><i class="fas fa-phone"></i></span>
+						<input type="text" name="telefoon" id="telefoon"/>     
+					</div>
+				</div>	
+			</div>
+		</form>
+	</div>
+	<div class="row">
+		<div class='form-group'>
+					<button id="wijzigbutton" type="button" class="btn btn-primary" onclick="patientwijz()" disabled><i class="fas fa-clipboard-check" style="color:white"></i>
+						Gegevens wijzigen/aanvullen
+					</button>
+					<button id="doorvoerbutton" type="button" class="btn btn-primary" onclick="patientinv()" disabled><i class="fas fa-clipboard-check" style="color:white"></i>
+						Wijzigingen doorvoeren
+					</button>
+					<button id="aanmeldbutton" type="button" class="btn btn-primary" onclick="patientaanmeld()" disabled><i class="fas fa-clipboard-check" style="color:white"></i>
+						Dossier aanmelden bij het Mitz abonnementenregister
+					</button>
+					<p id="result"></p>
+		</div>	
+	</div>
+</div>	
+</body>
+</html>

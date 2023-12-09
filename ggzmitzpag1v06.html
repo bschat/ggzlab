@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZMitzpag1
+	Doel: 	 Dit javascript/html programma simuleert het gebruik van MijnMitz door een burger/patient. De gehele "mijnmitz"-simulatie bestaat uit drie schermen: GGZMitzpag1vXX.html,GGZMitzpag2vXX.html en GGZMitzpag3vXX.html. Vanuit onderhoudbaarheid is de javascript-code zoveel mogelijk gescheiden van de HTML instructies. Daardoor hoort bij ieder html-scherm hoort een javascript-bestand. Dit zijn dus achtereenvolgens  GGZMitzpag1vXX.js,GGZMitzpag2vXX.js en GGZMitzpag3vXX.js
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzmitzpag1v06.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.6";
+var appname		= "MijnMitz(1)";
+var appfile		= "ggzmitzpag1v06.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img\ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body>
+<hr></hr>
+<div class="container">
+	<div class="row">
+		<p id="appname"></p>
+	</div>	
+	<div class="row">
+		<div class="form-group mb-3">
+			<span class="icon-case"><i class="fas fa-male"></i></span>
+			<input name="bsn" id="bsn" style="width: 200px" class="form-control pull-left" placeholder="Voer uw bsn in" onchange="checkbsn()">
+			<button id='okbutton' class="btn btn-outline-primary" onclick="checkbsn()">Ok</button>
+		</div>
+	</div>
+	<div class="row">
+		<center><p id="welkom"></p></center>
+		<center><img id="plaat1" src="img\img-beperkttoest.png"/></center>
+	</div>
+	<div class="row">	
+		<center><b><p id= "titel">Bepaalde zorgaanbieders</p></b></center>
+		<center><p id="regel1">Mogen jouw medische gegevens elektronisch beschikbaar stellen</p></center>
+		<center><p id="regel2"></p></center>
+		<center><p id="regel3">Lees hieronder welke zorgaanbieder jouw keuze gebruikt.</p></center>
+	</div>
+	<div class="row">
+		<div class="col">
+			<center><button id="pasaan" class="btn btn-primary btn-rounded" onclick="toonstartscherm()">&nbspKeuze aanpassen&nbsp</button></center>
+		</div>
+	</div>
+	<div class="row">
+	&nbsp
+	</div>
+	<div class="row">
+		<div class="col">
+			<center><button id="bekijk" class="btn btn-primary btn-rounded" onclick="gostep2()">Bekijk jouw keuzes</button></center>
+		</div>
+	</div>
+	<div class="row">
+	&nbsp
+	</div>
+	<div class="row">
+		<div class="col">
+			<p id="aanbiederlink">Jouw zorgaanbieders</p>
+		</div>
+		<div class="col">
+			<p id="faqlink">Veelgestelde vragen</p>
+		</div>
+	</div>	
+</div>	
+<!-- div met het pop-up invoerscherm voor als het bsn (nog) onbekend is -->
+<div id="invoerscherm" class="center-box">
+		<div class="contentform">
+			Dit BSN is nog niet bekend in GGZLab. Voer aub de volgende gegevens in.			
+			<div class="leftcontact">
+				<div class="form-group">
+					<p>Achternaam<span>*</span></p>
+					<span class="icon-case"><i class="fas fa-male"></i></span>
+					<input type="text" required name="achternaam" id="achternaam"/>
+				</div> 
+				<div class="form-group">
+					<p>Voornaam</p>
+					<span class="icon-case"><i class="fas fa-user"></i></span>
+					<input type="text" name="voornaam" id="voornaam"/>
+				</div>
+				<div class="form-group">
+					<p>Titel</p>
+					<span class="icon-case"><i class="fas fa-user"></i></span>
+					<input type="text" name="titel" id="titel"/>
+				</div>
+				<div class="form-group">
+					<p>Geslacht</p>  
+					<span class="icon-case"><i class="fas fa-venus-mars"></i></span>
+					<select name="geslacht" id="geslacht">
+						<option value="vrouw">vrouw</option>
+						<option value="man">man</option>
+						<option value="anders">anders</option>
+						<option value="onbekend">onbekend</option>
+					</select>           
+				</div>
+				<div class="form-group">
+					<p>Geboortedatum</p>
+					<span class="icon-case"><i class="fas fa-calendar-day"></i></span>
+					<input type="date" name="geboortedatum" id="geboortedatum"/>
+				</div>
+			</div>
+			<div class="rightcontact">  			
+				<div class="form-group">
+					<p>Straatnaam</p>
+					<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+					<input type="text" name="straatnaam" id="straatnaam"/>     
+				</div>
+				<div class="form-group">
+					<p>Huisnummer</p>
+					<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+					<input type="text" name="huisnummer" id="huisnummer"/>     
+				</div>
+				<div class="form-group">
+					<p>Woonplaats</p>
+					<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+					<input type="text" name="woonplaats" id="woonplaats"/>     
+				</div>
+				<div class="form-group">
+					<p>Postcode</p>
+					<span class="icon-case"><i class="fas fa-map-marker-alt"></i></span>
+					<input type="text" name="postcode" id="postcode"/>     
+				</div>
+				<div class="form-group">
+					<p>Telefoon</p>
+					<span class="icon-case"><i class="fas fa-phone"></i></span>
+					<input type="text" name="telefoon" id="telefoon"/>     
+				</div>
+			</div>
+			<div>
+				<button onclick="voerbsnin()">BSN toevoegen</button>
+				<button onclick="cancelbsn()">Terug</button>
+			</div>	
+		</div>
+</div>	
+<!-- div met het pop-up invoerscherm voor als het bsn wel bekend is maar (nog) geen enkele autorisatie heeft gegeven -->
+<div id="startscherm" class="center-box">
+	<div class="row">
+		<center><b>Wie mogen jouw gegevens beschikbaar stellen?</b></center>
+		<center> je kunt dit op ieder moment weer aanpassen </center>
+	</div>	
+	<div class="row">
+	&nbsp
+	</div>
+	<div class="row">
+	&nbsp
+	</div>
+	<div class="row">
+		<center><img id="plaat1" src="img\img_autor_alles.png" width="300px" onclick= "stelbeschikbaar('J')"/></center>
+	</div>
+	<div class="row">
+		<center><img id="plaat2" src="img\img_autor_select.png" width="300px" onclick="stelbeschikbaar('S')"/></center>
+	</div>
+	<div class="row">
+		<center><img id="plaat3" src="img\img_autor_geen.png" width="300px" onclick="stelbeschikbaar('N')"/></center>
+	</div>
+	<div class="row">
+	&nbsp
+	</div>
+	<div class="row">
+		<center><img id="plaat4" src="img\img_geenzorgverzek.png" width="400px"/></center>
+	</div>
+	<div class="row">
+		<center><button id="annuleerkeus1" class="btn btn-outline-danger btn-sm" onclick="annuleerkeus1()">annuleren</button></center>
+	</div>
+</div>
+</body>
+</html>

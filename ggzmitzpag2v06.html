@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<!-- Patientregistratie -->
+<!------- Begin standaard blokje voor alle GUI apps in het GGZLab -->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzmitzpag2v06.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.6";
+var appname		= "MijnMitz(2)";
+var appfile		= "ggzmitzpag2v06.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img/ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" aria-current="page" href="javascript:gostart();">Startscherm</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor (in nieuw window)</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gopatientlist();">Patienten</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body>
+<hr></hr>
+<div class="container">
+	<div class="row">
+			<div class="form-group">
+				<p id="appname"></p>
+				<input name="bsn" id="bsn" style="width: 200px" class="form-control pull-right" hidden onchange="vulkaarten()">
+			</div>
+	</div>
+</div>	
+<!-- div met gemaakte keuzes -->
+<div class="container">
+	<div class="center-box">
+		<div>
+			<img src="img/img-vijfzorgverleners.png" width="400px"/>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Huisartsen en huisartsenposten</h5>
+				<p class="card-text" id="card1txt">mogen jouw gegevens beschikbaarstellen aan al jouw zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(1)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Apotheken</h5>
+				<p class="card-text" id="card2txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(2)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Ziekenhuizen, medische centra en klinieken</h5>
+				<p class="card-text" id="card3txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(3)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Verpleging en verzorging</h5>
+				<p class="card-text" id="card4txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(4)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Laboratoria en diagnostische centra</h5>
+				<p class="card-text" id="card5txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(5)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Geestelijke gezondheidszorg (GGZ)</h5>
+				<p class="card-text" id="card6txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(6)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Overige zorg (tandartsen, paramedici, jeugdgezondheidszorg)</h5>
+				<p class="card-text" id="card7txt">mogen jouw gegevens beschikbaarstellen aan bepaalde zorgverleners</p>
+				<div class="d-flex justify-content-end">
+					<button class="btn btn-outline-info btn-sm" type="button" onclick = "wijzigauth(7)">
+					Aanpassen
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div id="knoppenregel">
+		<button class="btn btn-outline-primary" onclick = "terug()">Home</button>
+	</div>	
+</div>
+		
+
+<p></p>
+  
+</body>
+</html>

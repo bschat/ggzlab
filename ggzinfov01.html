@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZConfigovzvXX.html
+	Doel: 	 Deze html module bouwt het eerste scherm met beheer-functies voor het GGZLab. Vanuit onderhoudbaarheid is de javascript-code zoveel mogelijk gescheiden van de HTML instructies. Daardoor hoort bij dit html-scherm een javascript-bestand met de naam GGZConfigovzvXX.js. 
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.1";
+var appname		= "Over GGZLab";
+var appfile		= "ggzinfov01.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<style>
+.navbar {
+    height: 80px !important; /*i assume your navbar size 80px*/
+}
+select {
+  width: 200px;
+}
+
+select option {
+  width: 200px;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img\ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link disabled" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body onload="toonheader()">
+<hr></hr>
+<div class="container">
+	<div class="row">
+			<div class="form-group">
+				<label id="appname"></label>
+			</div>
+	</div>
+	<H2>Informatie over GGZLab </H2>
+	<b>Wat is GGZLab</b><br>
+	De gedachte achter het GGZLab is om te beschikken over een simulatie-omgeving die de
+communicatiestromen inzichtelijk maakt. Daarbij gaat het met name om de communicatiestromen zoals deze verlopen bij de uitwisseling van patientinformatie tussen zorgaanbieders in de geestelijke gezondheidszorg (GGZ). <br>
+Met het GGZLab zoals het nu is kunnen "user stories" worden nagespeeld. Bijvoorbeeld: een patiënt heeft via MijnMitz al aangegeven welke uitwisselingen hij wel en welke hij niet toestaat. Nu komt hij bij een GGZ waar hij verteld dat hij al eerder bij een andere GGZ in zorg is geweest. Wat gebeurt er nu als de actuele GGZ de behandelinformatie bij de vorige  GGZ opvraagt?  Wat zou er gebeuren als de patient in MijnMitz een andere keuze maakt? <br><br>
+	<b>Aan de slag met GGZLab</b><br>
+	<ul>
+		<li>
+	Open om te beginnen het <a class="link-opacity-25 link-success" onclick="gomonitor()">monitorscherm</a> maak het venster klein, zodat u er een ander venster naast kunt zetten, of zet dit scherm neer in uw tweede beeldscherm. Start de monitoring. 
+		</li>
+		<li>
+	Open nu in een nieuw venster het <a class="link-opacity-25 link-success" onclick="gomijnmitz()">MijnMitz scherm</a>. Vul een willekeurig "BSN" in (hoeft geen negen cijfers te zijn, alles mag) en druk op <tab>. Voer vervolgens minstens een achternaam in. Meer gegevens mogen ook, maar hoeven niet.
+		</li>
+	U krijgt nu de "Mijnmitz"-schermen te zien, zoals die ook in het echte MijnMitz getoond worden. Maak een keuze uit de toestemmingen voor uitwisseling. 
+		</li>
+		<li>
+	Zodra u in MijnMitz keuzes voor uitwisseling heeft gemaakt ziet u in het monitorscherm een animatie van de verbinding tussen "MijnMitz" en "Mitz", de centrale toestemmingsvoorziening. Op dezelfde manier worden ook andere communicatieverbindingen in het monitor-scherm getoond.
+		</li>
+		<li>
+	Verlaat nu MijnMitz (maar laat de monitor lopen) en open de patientregistratie. Voer hier het BSN in van de net toegevoegde persoon. U ziet nu de opmerking dat deze persoon nog geen patiënt is bij deze zorgaanbieder (de zorgaanbieder die midden bovenin het scherm wordt genoemd) en krijgt de vraag of u hem/haar als patient wilt toevoegen. Bevestig dit.
+		</li>
+		<li>
+	U kunt nu proberen om de behandelgegevens van deze patient aan te melden bij het abonnementenregister van Mitz. Druk op de betreffende knop. In het monitor-scherm ziet u nu hoe uw informatiesysteem (EPD) contact opneemt met Mitz om te kijken of de patient toestemming voor uitwisseling heeft gegeven. Afhankelijk van de keuzes in de derde stap komt er een accoord (groen) of een afwijzing (rood gestreept) terug van Mitz.
+		</li>
+	</ul>
+	Pas nu een of meer keuzes aan voor dit BSN in MijnMitz en kijk dan opnieuw welke aanmeldingen/uitwisselingen er mogelijk zijn.
+<br>
+	Meer informatie: <br>
+	<ul>
+		<li>
+			Functioneel (TODO) 
+		</li>
+		<li>
+			 <a class="link-opacity-25 link-success"  onclick="gonatdocs()">Technisch</a>
+		</li>
+	</ul>	
+</div>	
+ </body>
+</html>
