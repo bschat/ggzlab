@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("loc",["Function"],[["lockform",,[[,,,,0,"File:ggzpatregv08.js:lockform"]]]]);

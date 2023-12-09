@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("exp",["Function"],[["exportarray",,[[,,,,0,"File:ggzconfigovzv02.js:exportarray"]]],["exporttabel",,[[,,,,0,"File:ggzconfigovzv02.js:exporttabel"]]]]);

@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("gos",["Function"],[["gostep2",,[[,,,,0,"File:ggzmitzpag1v06.js:gostep2"]]]]);

@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("var",["Constant"],[["variabelen",,[[,"globale variabelen",,,0,"File:ggzmonitorv11.js:globale_variabelen"]]]]);

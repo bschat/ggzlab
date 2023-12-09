@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("dow",["Function"],[["downloadBlob",,[[,,,,0,"File:ggzconfigovzv02.js:downloadBlob"]]]]);

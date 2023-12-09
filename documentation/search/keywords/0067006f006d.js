@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("gom",["Function"],[["gomitz",,[[,,,,0,"File:ggzlabv08.js:gomitz"]]],["gomonitor",,[[,,,,0,"File:ggzlabv08.js:gomonitor"]]]]);

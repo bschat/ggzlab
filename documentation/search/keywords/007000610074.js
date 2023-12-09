@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("pat",["Function"],[["patientaanmeld",,[[,,,,0,"File:ggzpatregv08.js:patientaanmeld"]]],["patientinv",,[[,,,,0,"File:ggzpatregv08.js:patientinv"]]],["patientwijz",,[[,,,,0,"File:ggzpatregv08.js:patientwijz"]]]]);

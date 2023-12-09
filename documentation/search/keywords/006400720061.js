@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("dra",["Function"],[["drawcomm",,[[,,,,0,"File:animatev18.js:drawcomm"]]],["drawconfig",,[[,,,,0,"File:ggzmonitorv11.js:drawconfig"]]],["drawlegend",,[[,,,,0,"File:ggzmonitorv11.js:drawlegend"]]],["drawline",,[[,,,,0,"File:animatev18.js:drawline"]]],["drawverticalcomm",,[[,,,,0,"File:animatev18.js:drawverticalcomm"]]]]);

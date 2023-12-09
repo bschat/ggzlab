@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("gop",["Function"],[["gopatreg",,[[,,,,0,"File:ggzlabv08.js:gopatreg"]]]]);

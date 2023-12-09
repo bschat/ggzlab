@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("sto",["Function"],[["stopmonitor",,[[,,,,0,"File:ggzmonitorv11.js:stopmonitor"]]]]);

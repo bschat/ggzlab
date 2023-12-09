@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("cle",["Function"],[["clean",,[[,,,,0,"File:ggzmonitorv11.js:clean"]]],["clearform",,[[,,,,0,"File:ggzpatregv08.js:clearform"]]],["clearscreen",,[[,,,,0,"File:ggzmitzpag1v06.js:clearscreen"]]]]);

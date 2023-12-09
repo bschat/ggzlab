@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("log",["Function"],[["logochange",,[[,,,,0,"File:ggzpatregv08.js:logochange"]]]]);

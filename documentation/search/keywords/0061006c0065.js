@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("ale",["Function"],[["alertnawait",,[[,,,,0,"File:ggzpatregv08.js:alertnawait"]]]]);

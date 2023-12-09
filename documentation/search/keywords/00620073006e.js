@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("bsn",["Function"],[["bsnveldchange",,[[,,,,0,"File:ggzpatregv08.js:bsnveldchange"]]]]);

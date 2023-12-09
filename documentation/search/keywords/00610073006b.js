@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("ask",["Function"],[["askmitz",,[[,,,,0,"File:ggzmonitorv11.js:askmitz"]]],["askxis",,[[,,,,0,"File:ggzmonitorv11.js:askxis"]]]]);
