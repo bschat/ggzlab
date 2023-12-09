@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<!--
+	About:	GGZConfigovzvXX.html
+	Doel: 	 Deze html module bouwt het eerste scherm met beheer-functies voor het GGZLab. Vanuit onderhoudbaarheid is de javascript-code zoveel mogelijk gescheiden van de HTML instructies. Daardoor hoort bij dit html-scherm een javascript-bestand met de naam GGZConfigovzvXX.js. 
+-->
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="ggzlabv02.css">
+<link rel="stylesheet" href="bootstrap-5.3.0-dist/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="fontawesome-free-5.15.4-web/css/all.css">
+<script src="jquery-3.7.0.min.js"></script>
+<script src="bootstrap-5.3.0-dist/js/bootstrap.min.js"></script>
+<script src="ggzlabv08.js"></script>
+<script src="ggzconfigovzv02.js"></script>
+<!-- -->
+<script>
+var appversion 	= "0.1";
+var appname		= "index";
+var appfile		= "ggzinfov01.html"
+var appimg		= imgpatient;
+var helppage	= 0;
+</script>
+</head>
+<style>
+.navbar {
+    height: 80px !important; /*i assume your navbar size 80px*/
+}
+select {
+  width: 150px;
+}
+
+select option {
+  width: 150px;
+}
+</style>
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="https://www.vzvz.nl">
+			<img src="img\ggzlab.jpg" height="80px" class="d-inline-block align-text-middle"/>	
+		</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent" style="background-color: #e3f2fd;">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gopatreg();">Patientregistratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomonitor();">Monitor</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:gomitz();">MijnMitz</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goconfig();">Configuratie</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="javascript:goinfo();">Info</a>
+				</li>
+			</ul>		
+		</div>
+  </div>
+</nav>
+<body>
+<hr></hr>
+<div class="container">
+	<div class="row">
+		<div class="col">
+			<b>GGZLab</b>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col">
+			<div class="btn-group-vertical">
+				<button class="btn btn-outline-primary" onclick="gopatreg()">
+					<p class="text-start">
+					Patientregistratie
+					</p>
+					<img src="img\img-patreg.png" width="150px"/>
+				</button> 			
+				<button class="btn btn-outline-primary" onclick="gomonitor()">
+					<p class="text-start">
+					Monitor
+					</p>
+					<img src="img\img-monitor.png" width="75px"/>
+				</button> 
+				<button class="btn btn-outline-primary"  onclick="gomitz()">
+					<p class="text-start">
+					MijnMitz
+					</p>
+					<img src="img\img-mijnmitz.png" width="150px"/>
+				</button> 
+				<button class="btn btn-outline-primary"  onclick="goconfig()">
+					<p class="text-start">
+					Configuratie
+					</p>
+					<img src="img\img-config.png" width="150px"/>					
+				</button> 
+				<button class="btn btn-outline-primary"  onclick="goinfo()">
+					<p class="text-start">
+					Over GGZLab
+					</p>
+					<img src="img\img-info.png" width="150px"/>					
+				</button>
+			</div>
+		</div>	
+	</div>
+</div>	
+ </body>
+</html>
