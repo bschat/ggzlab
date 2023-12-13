@@ -10,7 +10,7 @@
 GGZLab is een simulatie-omgeving. Deze simulatie-omgeving is specifiek gericht op het simuleren (en illustreren) van informatieuitwisseling in de zorg, en daarbinnen de geestelijke gezondheidszorg. In de zorg en de GGZ-zorg bestaan er veel projecten en initiatieven rond informatie-uitwisseling en ICT. Enkele voorbeelden daarvan zijn Koppeltaal, ZorgAdresBoek en Mitz. Om inzichtelijk te kunnen maken welke invloed deze projecten kunnen hebben op het werk van de zorgverlener is GGZLab ontwikkeld.
 De actuele versie richt zich op de toepassing van Mitz, de (centrale) toestemmingsvoorziening waarin burgers en patiënten kunnen aangeven voor welke uitwisselingen zij wel of geen toestemming geven.
 ### Functionaliteit
-GGZLab presenteert zich op drie manieren (zie ook de afbeelding XXX):
+GGZLab presenteert zich op drie manieren (zie ook de afbeelding https://bschat.github.io/ggzlab/img/applicatiearchitectuur.jpg):
 * Het bewerkingsscherm. Dit scherm bootst normale gebruikerstoepassing na. Bijvoorbeeld MijnMitz voor een burger die zijn toestemmingen wil invoeren, een EPD van een zorgverlener of een voorschrijfsysteem van een apotheker
 * Het monitorscherm. Het monitorscherm toont de communicatiestromen zoals die plaatsvinden vanuit de gebruikerstoepassing en naar de gebruikerstoepassing toe. Zo zal bij het "beschikbaarstellen" van behandelgegevens voor uitwisseling (vanuit het EPD van een zorgaanbieder) de communicatie met Mitz te zien zijn teneinde te bepalen of de patient dit toestaat of niet.
 * Het configuratiescherm. Hierin worden de simulatiegegevens getoond, kunnen deze worden geimporteerd en geexporteerd en kunnen de instellingen voor de simulaties worden aangepast.
